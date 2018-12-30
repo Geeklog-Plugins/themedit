@@ -5,6 +5,6 @@
 <p>{readme}<a href="{site_admin_url}/plugins/themedit/readme.html" target="_blank">{installdoc}</a>
 &nbsp;&nbsp;<a href="{site_admin_url}/plugins/themedit/readme_ja.html" target="_blank">{installdoc_ja}</a>
 <form method='post' action='{cgiurl}'>
-	<input type='submit' value='{btnmsg}' name='B1'>
-	<input type='hidden' value='{action}' name='action'>
+	<input type='submit' value='{btnmsg}' name='B1'{xhtml}>
+	<input type='hidden' value='{action}' name='action'{xhtml}>
 </form>

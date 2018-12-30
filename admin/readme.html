@@ -58,9 +58,9 @@
 </head>
 
 <body>
-<h1>Geeklog Theme Editor Plugin [v1.0.4]</h1>
+<h1>Geeklog Theme Editor Plugin [v1.1.0]</h1>
 by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a>]<br>
-Dec 21, 2006
+Aug 11, 2008
 
 <h2>Table of Contents</h2>
 
@@ -83,6 +83,12 @@ Dec 21, 2006
 <table border="1">
 	<tr>
 		<th>Date</th><th>Version</th><th>Description</th>
+	</tr>
+	<tr>
+		<td>Aug 11, 2008</td><td>1.1.0</td><td><span class="fix">[New]</span> Upgraded to properly work with Geeklog-1.5.0 as well.<br><span class="fix">[New]</span> Upgraded to use Config UI with GL-1.5.0.</td>
+	</tr>
+	<tr>
+		<td>Mar 29, 2007</td><td>1.0.5</td><td><span class="fix">[Fix]</span> Modified to properly handle a path containing an apostrophe.<br><span class="new">[New]</span> Added a new option to make all themes available automatically.  (See <a href="#config">Configuring the plugin</a> below.)<br><span class="new">[New]</span> Added a new option to make all theme-related files (*.thtml, *.css) available automatically.  (See <a href="#config">Configuring the plugin</a> below.)</td>
 	</tr>
 	<tr>
 		<td>Dec 21, 2006</td><td>1.0.4</td><td><span class="new">[New]</span> Added a functionality of uploading images to the images directory under each theme directory<br><span class="new">[New]</span> Changed file name dropdown list so that the purposes of the files, instead of file names themselves, will appear.</td>
@@ -133,7 +139,7 @@ Dec 21, 2006
 	<li><strong>[***** EXTRA STEP FOR THEME EDITOR PLUGIN *****]</strong>  Restore the permissions of the directories and files you changed during the installation.  For example, change the permissions of the directories to 755 and those of the files to 644.</li>
 </ol>
 
-<a name="config"></a><h3>Configuring The Plugin</h3>
+<a name="config"></a><h3>Configuring the plugin</h3>
 <p>In the plugin's config.php, you can modify these values:</p>
 <table border="1">
 	<tr>
@@ -156,7 +162,7 @@ Dec 21, 2006
 			<ul>
 				<li>'auto' -- the plugin will update the data  stored in databse automatically.</li>
 				<li>'manual' -- the plugin will display the information and 'UPDATE database' button.</li>
-				<li>'igonore' -- the plugin will do nothing about the change.</li>
+				<li>'ignore' -- the plugin will do nothing about the change.</li>
 			</ul>
 		</td>
 	</tr>
@@ -185,9 +191,25 @@ Dec 21, 2006
 		<td>Integer</td>
 		<td>The max size (in bytes) of images to be uploaded to the web server.  The default value is 1048576, that is, 1M bytes.</td>
 	</tr>
+	<tr>
+		<td><code>$_THM_CONF['enable_all_themes']</code><br>(ver.1.0.5 or later)</td>
+		<td>Boolean</td>
+		<td>If set true, all themes are allowed automatically regardless of the value of <code>$_THM_CONF['allowed_themes']</code>.  The default value is false.</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['enable_all_files']</code><br>(ver.1.0.5 or later)</td>
+		<td>Boolean</td>
+		<td>If set true, all theme-related files (*.thtml, *.css) are allowed automatically regardless of the value of <code>$_THM_CONF['allowed_files']</code>.  The default value is false.</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['enable_csrf_protection']</code><br>(ver.1.1.0 or later)</td>
+		<td>Boolean</td>
+		<td>If set true, CSRF protection will be enabled when you are using Geeklog-1.5.0.</td>
+	</tr>
 </table>
 
 <a name="upgrade"></a><h3>Upgrading The Plugin</h3>
+<p>First, after you download and unpack a new archive, upload all the files to the Web server.  Then, log in as admin and go to the Plugin Editor.  Click the edit icon and click "upgrade" button.</p>
 
 <a name="usage"></a><h3>Usage</h3>
 <p>The Theme Editor plugin is so simple that you can use it almost intuitively.</p>
@@ -205,6 +227,6 @@ Dec 21, 2006
 <a name="license"></a><h3>License</h3>
 <p>The Theme Editor plugin is licensed under the GPL.</p>
 
-<div id="copyright">Copyright &copy; 2006 mystral-kk</div>
+<div id="copyright">Copyright &copy; 2006-2008 mystral-kk</div>
 </body>
 </html>

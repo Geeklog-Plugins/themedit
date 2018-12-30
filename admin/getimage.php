@@ -3,9 +3,9 @@
 // +---------------------------------------------------------------------------+
 // | Theme Editor Plugin for Geeklog - The Ultimate Weblog                     |
 // +---------------------------------------------------------------------------+
-// | upload.php                                                                |
+// | public_html/admin/plugins/themedit/getimage.php                           |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006 - geeklog AT mystral-kkDOT net                         |
+// | Copyright (C) 2006-2008 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -30,25 +30,68 @@
 // | Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.           |
 // |                                                                           |
 // +---------------------------------------------------------------------------+
-//
 
 require_once '../../../lib-common.php';
 
-// Security check
-
-if ( !SEC_inGroup( 'Root' ) ) {
+/**
+* Security check
+*/
+if (!SEC_hasRights('themedit.admin')) {
     // Someone is trying to illegally access this page
-    COM_errorLog( "Someone has tried to illegally access the themedit uploader.  User id: {$_USER['uid']}, Username: {$_USER['username']}, IP: $REMOTE_ADDR", 1 );
-    $display  = COM_siteHeader();
-    $display .= COM_startBlock( $LANG_THM['access_denied'] );
-    $display .= $LANG_THM['access_denied_msg'];
-    $display .= COM_endBlock();
-    $display .= COM_siteFooter( true );
+    COM_errorLog("Someone has tried to illegally access the themedit uploader.  User id: {$_USER['uid']}, Username: {$_USER['username']}, IP: {$_SERVER['REMOTE_ADDR']}", 1);
+    $display = COM_siteHeader()
+			 . COM_startBlock(THM_str('access_denied'))
+			 . THM_str('access_denied_msg')
+			 . COM_endBlock()
+			 . COM_siteFooter();
     echo $display;
     exit;
 }
 
-$url = $_GET['url'];
-$ih = imagecreatetruecolor( $_THM_CONF['image_width'], $_THM_CONF['image_size'] );
+$path = $_GET['path'];
+$info = pathinfo($path);
 
-?>
+/**
+* Creates an image
+*/
+switch (strtolower($info['extension'])) {
+	case 'jpg':
+	case 'jpeg':
+		$type = 'jpeg';
+		$im   = @imagecreatefromjpeg($path);
+		break;
+	
+	case 'png':
+		$type = 'png';
+		$im   = @imagecreatefrompng($path);
+		break;
+	
+	case 'gif':
+		$type = 'gif';
+		$im   = @imagecreatefromgif($path);
+		break;
+	
+	default:
+		$type = 'none';
+		$im   = false;
+		break;
+}
+
+/**
+* Displays the image
+*/
+if ($im === false) {
+	COM_errorLog("themedit: invalid path or GD unsupported: {$path}");
+} else {
+	header("Content-Type: image/{$type}");
+	
+	if ($type == 'jpeg') {
+		imagejpeg($im);
+	} else if ($type == 'png') {
+		imagepng($im);
+	} else if ($type == 'gif') {
+		imagegif($im);
+	}
+	
+	imagedestroy($im);
+}

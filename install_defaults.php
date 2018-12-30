@@ -1,18 +1,11 @@
 <?php
-//
+
 // +---------------------------------------------------------------------------+
 // | Theme Editor Plugin for Geeklog - The Ultimate Weblog                     |
 // +---------------------------------------------------------------------------+
-// | geeklog/plugins/themedit/config.php                                       |
+// | geeklog/plugins/themedit/install_defaults.php                             |
 // +---------------------------------------------------------------------------+
 // | Copyright (C) 2006-2008 - geeklog AT mystral-kk DOT net                   |
-// |                                                                           |
-// | Constructed with the Universal Plugin                                     |
-// | Copyright (C) 2002 by the following authors:                              |
-// | Tom Willett                 -    twillett@users.sourceforge.net           |
-// | Blaine Lang                 -    langmail@sympatico.ca                    |
-// | The Universal Plugin is based on prior work by:                           |
-// | Tony Bibbs                  -    tony@tonybibbs.com                       |
 // +---------------------------------------------------------------------------+
 // |                                                                           |
 // | This program is free software; you can redistribute it and/or             |
@@ -31,26 +24,29 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 
-global $_DB_table_prefix, $_TABLES;
+if (strpos($_SERVER['PHP_SELF'], 'install_defaults.php') !== false) {
+    die('This file can not be used on its own!');
+}
 
 /**
-* set Plugin Table Prefix the Same as Geeklogs
+* Theme Editor default settings
+*
+* Initial Installation Defaults used when loading the online configuration
+* records. These settings are only used during the initial installation
+* and not referenced any more once the plugin is installed
 */
-$_THM_table_prefix = $_DB_table_prefix;
 
 /**
-* Add to $_TABLES array the tables your plugin uses
+* Theme Editor plugin configuration file
 */
-$_TABLES['thm_contents'] = $_THM_table_prefix . 'thm_contents';
-
-$_THM_CONF = array();
+global $_DB_table_prefix, $_THM_DEFAULT;
 
 /**
-* Plugin info
+* the Theme Editor plugin's config array
+* 
+* @global array $_THM_DEFAULT
 */
-$_THM_CONF['pi_version'] = '1.1.0';						// Plugin Version
-$_THM_CONF['gl_version'] = '1.4.0';						// GL Version plugin for
-$_THM_CONF['pi_url']     = 'http://mystral-kk.net/';	// Plugin Homepage
+$_THM_DEFAULT = array();
 
 //=========================================================
 //  USER CONFIGURATION
@@ -65,20 +61,20 @@ $_THM_CONF['pi_url']     = 'http://mystral-kk.net/';	// Plugin Homepage
 * accessible from the Theme Editor Plugin, regardless of the value of
 * $_THM_CONF['allowed_themes'] var.
 */
-$_THM_CONF['enable_all_themes'] = false;
+$_THM_DEFAULT['enable_all_themes'] = false;
 
 /**
-* If you set true to $_THM_CONF['enable_all_files'], all files related to
+* If you set true to $_THM_DEFAULT['enable_all_files'], all files related to
 * themes (*.thtml, *.css) will be accessible from the Theme Editor Plugin,
-* regardless of the value of $_THM_CONF['allowed_files'] var
+* regardless of the value of $_THM_DEFAULT['allowed_files'] var
 */
-$_THM_CONF['enable_all_files'] = false;
+$_THM_DEFAULT['enable_all_files'] = false;
 
 /**
 * Themes to be edited with this plugin
 * @NOTE: theme names are case-sensitive
 */
-$_THM_CONF['allowed_themes'] = array(
+$_THM_DEFAULT['allowed_themes'] = array(
 	'professional', 'ProfessionalCSS', 'mobile', 'mobile_3g',
 );
 
@@ -86,7 +82,7 @@ $_THM_CONF['allowed_themes'] = array(
 * Template files and CSS files to be edited with this plugin
 * @NOTE: file names are case-sensitive
 */
-$_THM_CONF['allowed_files'] = array(
+$_THM_DEFAULT['allowed_files'] = array(
 	// CSS
 	'style.css', 'custom.css', 'custom.sample.css', 'style_forum.css',
 	
@@ -130,18 +126,18 @@ $_THM_CONF['allowed_files'] = array(
 * If you'd like to see theme names and file names sorted alphabetically in
 * their dropdown list, uncomment the next two lines.
 */
-// sort($_THM_CONF['allowed_themes']);
-// sort($_THM_CONF['allowed_files']);
+// sort($_THM_DEFAULT['allowed_themes']);
+// sort($_THM_DEFAULT['allowed_files']);
 
 /**
-* When you add/remove a theme to/from $_THM_CONF['allowed_themes'], or
-* a template file to/from $_THM_CONF['allowed_files'], Theme Editor plugin will
+* When you add/remove a theme to/from $_THM_DEFAULT['allowed_themes'], or
+* a template file to/from $_THM_DEFAULT['allowed_files'], Theme Editor plugin will
 * detect it automatically.  When this option is set to 'auto', the plugin will
 * update the data stored in databse automatically.  When set to 'manual', the
 * plugin will display the information and 'UPDATE database' button.  When set
 * to 'ignore', the plugin will do nothing about the change.
 */
-$_THM_CONF['resync_database'] = 'manual';
+$_THM_DEFAULT['resync_database'] = 'manual';
 
 //-------------------------------------
 //  Image upload
@@ -150,50 +146,72 @@ $_THM_CONF['resync_database'] = 'manual';
 /**
 * If set true, you can upload images to theme/images/* directories
 */
-$_THM_CONF['allow_upload'] = true;
+$_THM_DEFAULT['allow_upload'] = true;
 
 /**
 * Thumbnail sizes in pixels
 */
-$_THM_CONF['image_width']  = 120;
+$_THM_DEFAULT['image_width']  = 120;
 
-$_THM_CONF['image_height'] = 100;
+$_THM_DEFAULT['image_height'] = 100;
 
 /**
 * Max column number of thumbnails
 */
-$_THM_CONF['image_max_col'] = 6;
+$_THM_DEFAULT['image_max_col'] = 6;
 
 /**
 * Max size of a file in bytes (1048576 bytes = 1M bytes) for uploading to the
 * Web server
 */
-$_THM_CONF['upload_max_size'] = 1048576;
+$_THM_DEFAULT['upload_max_size'] = 1048576;
 
 /**
 * Enable CSRF protection for GL-1.5.0+
 */
-$_THM_CONF['enable_csrf_protection'] = true;
+$_THM_DEFAULT['enable_csrf_protection'] = true;
 
 //=========================================================
 //  END OF USER CONFIGURATION
 //=========================================================
 
-//===============================================
-// For GL-1.5.0+
-//===============================================
-
 /**
-* Check and see if we need to load the plugin configuration
+* Initialize Dbman plugin configuration
+*
+* Creates the database entries for the configuation if they don't already exist.
+* Initial values will be taken from $_THM_CONF if available (e.g. from an old
+* config.php), uses $_THM_CONF otherwise.
+*
+* @return   boolean     true: success; false: an error occurred
 */
-if (version_compare(VERSION, '1.5') >= 0) {
-    require_once $_CONF['path_system'] . 'classes/config.class.php';
+function plugin_initconfig_themedit() {
+    global $_THM_CONF, $_THM_DEFAULT;
     
-    $conf = config::get_instance();
-    if ($conf->group_exists('themedit')) {
-        $temp = $conf->get_config('themedit');
-        if (is_array($temp) AND (count($temp) >= 1)) {
-            $_THM_CONF = array_merge($_THM_CONF, $temp);
-        }
+    if (isset($_THM_CONF) AND is_array($_THM_CONF)
+     AND (count($_THM_CONF) >= 1)) {
+        $_THM_DEFAULT = array_merge($_THM_DEFAULT, $_THM_CONF);
     }
+    
+    $c = config::get_instance();
+    if (!$c->group_exists('themedit')) {
+        $c->add('sg_main', NULL, 'subgroup', 0, 0, NULL, 0, true, 'themedit');
+        $c->add('fs_main', NULL, 'fieldset', 0, 0, NULL, 0, true, 'themedit');
+        
+        /**
+        * Main
+        */
+        $c->add('enable_all_themes', $_THM_DEFAULT['enable_all_themes'], 'select', 0, 0, 0, 10, true, 'themedit');
+        $c->add('enable_all_files', $_THM_DEFAULT['enable_all_files'], 'select', 0, 0, 0, 20, true, 'themedit');
+        $c->add('allowed_themes', $_THM_DEFAULT['allowed_themes'], '%text', 0, 0, null, 30, true, 'themedit');
+        $c->add('allowed_files', $_THM_DEFAULT['allowed_files'], '%text', 0, 0, null, 40, true, 'themedit');
+        $c->add('resync_database', $_THM_DEFAULT['resync_database'], 'select', 0, 0, 1, 50, true, 'themedit');
+        $c->add('allow_upload', $_THM_DEFAULT['allow_upload'], 'select', 0, 0, 0, 60, true, 'themedit');
+        $c->add('image_width', $_THM_DEFAULT['image_width'], 'text', 0, 0, null, 70, true, 'themedit');
+        $c->add('image_height', $_THM_DEFAULT['image_height'], 'text', 0, 0, null, 80, true, 'themedit');
+        $c->add('image_max_col', $_THM_DEFAULT['image_max_col'], 'text', 0, 0, null, 90, true, 'themedit');
+        $c->add('upload_max_size', $_THM_DEFAULT['upload_max_size'], 'text', 0, 0, null, 100, true, 'themedit');
+        $c->add('enable_csrf_protection', $_THM_DEFAULT['enable_csrf_protection'], 'select', 0, 0, 0, 110, true, 'themedit');
+    }
+    
+    return true;
 }

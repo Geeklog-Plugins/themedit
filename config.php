@@ -48,7 +48,7 @@ $_THM_CONF = array();
 /**
 * Plugin info
 */
-$_THM_CONF['pi_version'] = '1.1.0';						// Plugin Version
+$_THM_CONF['pi_version'] = '1.1.1';						// Plugin Version
 $_THM_CONF['gl_version'] = '1.4.0';						// GL Version plugin for
 $_THM_CONF['pi_url']     = 'http://mystral-kk.net/';	// Plugin Homepage
 
@@ -189,11 +189,13 @@ $_THM_CONF['enable_csrf_protection'] = true;
 if (version_compare(VERSION, '1.5') >= 0) {
     require_once $_CONF['path_system'] . 'classes/config.class.php';
     
-    $conf = config::get_instance();
-    if ($conf->group_exists('themedit')) {
-        $temp = $conf->get_config('themedit');
+    $themedit_config = config::get_instance();
+    if ($themedit_config->group_exists('themedit')) {
+        $temp = $themedit_config->get_config('themedit');
         if (is_array($temp) AND (count($temp) >= 1)) {
             $_THM_CONF = array_merge($_THM_CONF, $temp);
         }
     }
+	
+	unset($themedit_config);
 }

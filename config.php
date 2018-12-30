@@ -47,9 +47,9 @@ $_THM_CONF = array();
 
 // Plugin info
 
-$_THM_CONF['pi_version'] = '1.0.2';						// Plugin Version
+$_THM_CONF['pi_version'] = '1.0.3';						// Plugin Version
 $_THM_CONF['gl_version'] = '1.4.0';						// GL Version plugin for
-$_THM_CONF['pi_url']     = 'http://mystrak-kk.net/';	// Plugin Homepage
+$_THM_CONF['pi_url']     = 'http://mystral-kk.net/';	// Plugin Homepage
 
 // Themes to be edited with this plugin
 // NOTE: theme names are case-sensitive
@@ -63,9 +63,33 @@ $_THM_CONF['allowed_themes'] = array(
 
 $_THM_CONF['allowed_files'] = array(
 	'header.thtml', 'footer.thtml', 'leftblocks.thtml', 'rightblocks.thtml',
-	'storybodytext.thtml', 'featuredstorybodytext.thtml', 'style.css', 'style_jp.css',
-	'style_forum.css'
+	'blockheader-left.thtml', 'blockfooter-left.thtml',
+	'blockheader-right.thtml', 'blockfooter-right.thtml',
+	'featuredstorytext.thtml', 'storytext.thtml','archivestorytext.thtml',
+	'menuitem.thtml', 'menuitem_last.thtml', 'menuitem_none.thtml',
+	'list.thtml','listitem.thtml',
+	'loginform.thtml',
+	'style.css',
+	'article/article.thtml', 'article/printable.thtml',
+	'profiles/contactuserform.thtml', 'profiles/contactauthorform.thtml',
+	'preferences/profile.thtml',
+	'search/searchform.thtml', 'search/searchresults.thtml',
+	'submit/submitevent.thtml', 'submit/submitloginrequired.thtml',
+	'users/newpassword.thtml', 'users/commentrow.thtml',
+	'users/getpasswordform.thtml', 'users/loginform.thtml', 'users/profile.thtml',
+	'users/registrationform.thtml', 'users/storyrow.thtml'
 );
+
+// Additional themes and files for Geeklog.jp users
+
+if (isset($_CONF['language'])
+ && in_array($_CONF['language'], array('japanese', 'japanese_utf-8'))) {
+	$_THM_CONF['allowed_themes'][] = 'IvySOHO';
+	$_THM_CONF['allowed_files'][]  = 'style_jp.css';
+	$_THM_CONF['allowed_files'][]  = 'style_forum.css';
+	sort($_THM_CONF['allowed_themes']);
+	sort($_THM_CONF['allowed_files']);
+}
 
 // When you add/remove a theme to/from $_THM_CONF['allowed_themes'], or a template
 // file to/from $_THM_CONF['allowed_files'], Theme Editor plugin will detect it

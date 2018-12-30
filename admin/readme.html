@@ -58,9 +58,9 @@
 </head>
 
 <body>
-<h1>Geeklog Theme Editor Plugin [v1.0.3]</h1>
+<h1>Geeklog Theme Editor Plugin [v1.0.4]</h1>
 by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a>]<br>
-Nov 7, 2006
+Dec 21, 2006
 
 <h2>Table of Contents</h2>
 
@@ -83,6 +83,9 @@ Nov 7, 2006
 <table border="1">
 	<tr>
 		<th>Date</th><th>Version</th><th>Description</th>
+	</tr>
+	<tr>
+		<td>Dec 21, 2006</td><td>1.0.4</td><td><span class="new">[New]</span> Added a functionality of uploading images to the images directory under each theme directory<br><span class="new">[New]</span> Changed file name dropdown list so that the purposes of the files, instead of file names themselves, will appear.</td>
 	</tr>
 	<tr>
 		<td>Nov 7, 2006</td><td>1.0.3</td><td><span class="fix">[Fix]</span> Dealed with the case where default language is not Japanese (Thanks, Kemal and Tsuchi).<br><span class="new">[New]</span> Added many more template file names(Thanks, Ivy).</td>
@@ -148,7 +151,7 @@ Nov 7, 2006
 	</tr>
 	<tr>
 		<td><code>$_THM_CONF['resync_database']</code></td>
-		<td>one of 'auto', 'manual', 'ignore'</td>
+		<td>One of 'auto', 'manual', 'ignore'</td>
 		<td>When you add/remove a theme to/from <code>$_THM_CONF['allowed_themes']</code>, or a template file to/from <code>$_THM_CONF['allowed_files']</code>, The Theme Editor plugin will detect it automatically.<br>
 			<ul>
 				<li>'auto' -- the plugin will update the data  stored in databse automatically.</li>
@@ -157,6 +160,31 @@ Nov 7, 2006
 			</ul>
 		</td>
 	</tr>
+	<tr>
+		<td><code>$_THM_CONF['allow_upload']</code></td>
+		<td>Boolean (true or false)</td>
+		<td>Whether you allow images to be uploaded to the images directories under the theme directories.  The default value is true.</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['image_width']</code></td>
+		<td>Integer</td>
+		<td>The width (in pixels) of thumb nail images.  The default value is 120.</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['image_height']</code></td>
+		<td>Integer</td>
+		<td>The height (in pixels) of thumb nail images.  The default value is 100.</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['image_max_col']</code></td>
+		<td>Integer</td>
+		<td>The number of columns of thumb nail images.  The default value is 6.</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['upload_max_size']</code></td>
+		<td>Integer</td>
+		<td>The max size (in bytes) of images to be uploaded to the web server.  The default value is 1048576, that is, 1M bytes.</td>
+	</tr>
 </table>
 
 <a name="upgrade"></a><h3>Upgrading The Plugin</h3>
@@ -164,13 +192,14 @@ Nov 7, 2006
 <a name="usage"></a><h3>Usage</h3>
 <p>The Theme Editor plugin is so simple that you can use it almost intuitively.</p>
 <ol>
-	<li>Choose a theme you want to edit at a dropdown menu.</li>
-	<li>Choose a file you want to edit at a dropdown menu.</li>
+	<li>Choose a theme you want to edit at a dropdown menu.<br><strong>NOTE</strong>: theme names you can choose from are defined as the <tt>$_THM_CONF['allowed_themes']</tt> array in <tt>config.php</tt>.  Please edit it as you like.</li>
+	<li>Choose a file you want to edit at a dropdown menu.<br><strong>NOTE</strong>: file names you can choose from are defined as the <tt>$_THM_CONF['allowed_files']</tt> array in <tt>config.php</tt>.  Please edit it as you like.</li>
 	<li>A list of template vars available in the current file will be displayed.</li>
 	<li>When you hit one of the buttons with a template var name on it, the corresponding tag will be inserted into the caret position.<br><strong>NOTE</strong>: you have to enable JavaScript to use these buttons.</li>
 	<li>When you hit the "<strong>Preview</strong>" button, the current content will be previewed in another page.</li>
 	<li>When you hit the "<strong>Save</strong>" button, the current content will be saved on the Web.</li>
 	<li>When you hit the "<strong>Initialize</strong>" button, the content of the file will be reverted to what it used to be when you installed the Theme Editor plugin.</li>
+	<li>When you hit the "<strong>Image</strong>" button, a simple image browser will be displayed.  Supported file types are 'jpg', 'jpeg', 'png', and 'gif'.  In the screen, you can choose a theme and a directory from dropdown lists.  When you want to upload an image file to the current directory, hit the 'Browse...' button and select an image file to upload and then hit the 'Upload' button.  If you want to delete an image file(s), check all the files you'd like to and hit the 'Delete' button.  <strong>The deleting process will be carried out WITHOUT CONFIRMATION, so be very careful!</strong>  There is no undoing it.</li>
 </ol>
 
 <a name="license"></a><h3>License</h3>

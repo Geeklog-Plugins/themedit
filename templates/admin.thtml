@@ -23,9 +23,11 @@
 	<hr>
 	<input name="thm_op" type="submit" value="{temp_lang_preview}">
 	<input name="thm_op" type="submit" value="{temp_lang_save}">&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="thm_op" type="submit" value="{temp_lang_image}">&nbsp;&nbsp;&nbsp;&nbsp;
 	<input name="thm_op" type="submit" value="{temp_lang_init}">
 	<textarea name="theme_contents" id="theme_contents" rows="30" cols="100" style="width:100%;">{temp_contents}</textarea><br>
 	<input name="thm_op" type="submit" value="{temp_lang_preview}">
 	<input name="thm_op" type="submit" value="{temp_lang_save}">&nbsp;&nbsp;&nbsp;&nbsp;
+	<input name="thm_op" type="submit" value="{temp_lang_image}">&nbsp;&nbsp;&nbsp;&nbsp;
 	<input name="thm_op" type="submit" value="{temp_lang_init}">
 </form>

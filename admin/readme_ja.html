@@ -57,9 +57,9 @@
 	</style>
 </head>
 
-<h1>Geeklogテーマエディタプラグイン [v1.0.3]</h1>
+<h1>Geeklogテーマエディタプラグイン [v1.0.4]</h1>
 by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a>]<br>
-2006年11月 7日
+2006年12月21日
 
 <h2>目次</h2>
 
@@ -82,6 +82,9 @@ by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a
 <table border="1">
 	<tr>
 		<th>日付</th><th>バージョン</th><th>説明</th>
+	</tr>
+	<tr>
+		<td>2006年12月21日</td><td>1.0.4</td><td><span class="new">[New]</span> 各テーマディレクトリ下の images ディレクトリに画像をアップロードする機能を追加。<br><span class="new">[New]</span> ファイル名ドロップダウンリストで，ファイル名ではなく機能名を表示するように変更。</td>
 	</tr>
 	<tr>
 		<td>2006年11月 7日</td><td>1.0.3</td><td><span class="fix">[Fix]</span> デフォルトの言語が日本語の場合に対応(Thanks, Kemal and Tsuchi)。<br><span class="new">[New]</span> テンプレートファイル名を大幅に追加(Thanks, Ivy)。</td>
@@ -158,6 +161,31 @@ by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a
 			</ul>
 		</td>
 	</tr>
+	<tr>
+		<td><code>$_THM_CONF['allow_upload']</code></td>
+		<td>論理型(trueまたはfalse)</td>
+		<td>画像ファイルのアップロードを許可するかどうかを決めます。デフォルト値はtrueです。</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['image_width']</code></td>
+		<td>整数型</td>
+		<td>サムネール画像の幅（ピクセル）。デフォルト値は120です。</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['image_height']</code></td>
+		<td>整数型</td>
+		<td>サムネール画像の高さ（ピクセル）。デフォルト値は100です。</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['image_max_col']</code></td>
+		<td>整数型</td>
+		<td>1列の中でサムネール画像を表示する個数。デフォルト値は6です。</td>
+	</tr>
+	<tr>
+		<td><code>$_THM_CONF['upload_max_size']</code></td>
+		<td>整数型</td>
+		<td>アップロードできる画像ファイルの最大サイズ。デフォルト値は1048576，つまり，1Mバイトです。</td>
+	</tr>
 </table>
 
 <a name="upgrade"></a><h3>プラグインのアップグレード</h3>
@@ -165,13 +193,14 @@ by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a
 <a name="usage"></a><h3>使用法</h3>
 <p>テーマエディタプラグインはとてもシンプルなので，ほとんど直感的に使えます。</p>
 <ol>
-	<li>編集したいテーマをドロップダウンリストから選択します。</li>
-	<li>編集したいファイルをドロップダウンリストから選択します。</li>
+	<li>編集したいテーマをドロップダウンリストから選択します。<br><strong>注意</strong>：選択できるテーマ名は <tt>config.php</tt> 中の <tt>$_THM_CONF['allowed_themes']</tt> で定義されています。必要に応じて変更してください。</li>
+	<li>編集したいファイルをドロップダウンリストから選択します。<br><strong>注意</strong>：選択できるファイル名は <tt>config.php</tt> 中の <tt>$_THM_CONF['allowed_files']</tt> で定義されています。必要に応じて変更してください。</li>
 	<li>使用可能なテンプレート変数の一覧が表示されます。</li>
 	<li>テンプレート変数名が書かれたボタンをクリックすると，編集画面のキャレットの位置に対応するタグが挿入されます。<br><strong>注意</strong>: JavaScriptを有効にしないとこのボタンは使えません。</li>
 	<li>「プレビュー」ボタンをクリックすると，編集内容のプレビューが別のページで表示されます。</li>
 	<li>「保存」ボタンをクリックすると，編集内容がWeb上に保存されます。</li>
 	<li>「初期設定に戻す」ボタンをクリックすると，ファイルの内容はこのプラグインがインストールされた時点の内容に戻ります。</li>
+	<li>「画像」ボタンをクリックすると，シンプルな画像ブラウザが表示されます。サポートされている画像タイプは'jpg', 'jpeg', 'png', 'gif'です。テーマ名とディレクトリ名のドロップダウンリストを選択することでブラウズできます。画像をアップロードするときには，「参照...」ボタンをクリックして選択し，「アップロード」ボタンをクリックします。画像ファイルを削除したい場合は，該当のファイルにチェックを入れて，「削除」ボタンをクリックします。<strong>削除は確認なしに行われるので，注意してください。</strong>やり直しはできません。</li>
 </ol>
 
 <a name="license"></a><h3>ライセンス</h3>

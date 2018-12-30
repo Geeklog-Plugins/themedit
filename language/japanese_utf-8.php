@@ -1,14 +1,13 @@
 <?php
 
 // +---------------------------------------------------------------------------+
-// | lang.php                                                                  |
+// | japanese_utf-8.php                                                        |
 // | This is the Japanese language (UTF-8) page for the Geeklog Theme Editor   |
 // |   Plugin!                                                                 |
 // |                                                                           |
 // +---------------------------------------------------------------------------|
-// | Copyright (C) 2002 by the following authors:                              |
+// | Copyright (C) 2006 - geeklog AT mystral-kk DOT net                        |
 // |                                                                           |
-// | Author: mystral-kk - geeklog AT mystral-k DOT net                         |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
 // | Tom Willett                 -    twillett@users.sourceforge.net           |
@@ -31,21 +30,8 @@
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA|
 // |                                                                           |
 // +---------------------------------------------------------------------------|
-
-// +---------------------------------------------------------------------------+
-// | Array Format:                                                             |
-// | $LANGXX[YY]:	$LANG - variable name                                      |
-// |	  	XX - file id number                                                |
-// |		YY - phrase id number                                              |
-// +---------------------------------------------------------------------------+
-
-/**
-* Generic Install language
-* 
-* Be sure and change the name of this array to match your plugin
-* e.g. $LANG_ST00
-*
-*/
+//
+// $Id$
 
 $LANG_THM = array (
     'plugin'            => 'プラグイン',

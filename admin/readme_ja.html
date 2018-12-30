@@ -45,13 +45,17 @@
 			background-color: #ccffff;
 			font-style: italic;
 		}
+		.fix {
+			color: red;
+			font-weight: bold;
+		}
 	<! -->
 	</style>
 </head>
 
-<h1>Geeklogテーマエディタプラグイン [v1.0.0]</h1>
+<h1>Geeklogテーマエディタプラグイン [v1.0.2]</h1>
 by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a>]<br>
-2006年10月 1日
+2006年11月 2日
 
 <h2>目次</h2>
 
@@ -63,6 +67,7 @@ by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a
 	<li><a href="#uninstall">プラグインのアンインストール</a></li>
 	<li><a href="#config">プラグインの設定</a></li>
 	<li><a href="#upgrade">プラグインのアップグレード</a></li>
+	<li><a href="#usage">使用法</a></li>
 	<li><a href="#license">ライセンス</a></li>
 </ul>
 
@@ -73,6 +78,9 @@ by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a
 <table border="1">
 	<tr>
 		<th>日付</th><th>バージョン</th><th>説明</th>
+	</tr>
+	<tr>
+		<td>2006年11月 2日</td><td>1.0.2</td><td><span class="fix">[Fix]</span> magic_quotes_gpcがオンの場合に対応(Thanks, samstone).</td>
 	</tr>
 	<tr>
 		<td>2006年10月 1日</td><td>1.0.0</td><td>初期バージョン</td>
@@ -147,6 +155,17 @@ by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a
 
 <a name="upgrade"></a><h3>プラグインのアップグレード</h3>
 
+<a name="usage"></a><h3>使用法</h3>
+<p>テーマエディタプラグインはとてもシンプルなので，ほとんど直感的に使えます。</p>
+<ol>
+	<li>編集したいテーマをドロップダウンリストから選択します。</li>
+	<li>編集したいファイルをドロップダウンリストから選択します。</li>
+	<li>使用可能なテンプレート変数の一覧が表示されます。</li>
+	<li>テンプレート変数名が書かれたボタンをクリックすると，編集画面のキャレットの位置に対応するタグが挿入されます。<br><strong>注意</strong>: JavaScriptを有効にしないとこのボタンは使えません。</li>
+	<li>「プレビュー」ボタンをクリックすると，編集内容のプレビューが別のページで表示されます。</li>
+	<li>「保存」ボタンをクリックすると，編集内容がWeb上に保存されます。</li>
+	<li>「初期設定に戻す」ボタンをクリックすると，ファイルの内容はこのプラグインがインストールされた時点の内容に戻ります。</li>
+</ol>
 
 <a name="license"></a><h3>ライセンス</h3>
 <p>テーマエディタプラグインはGPLです。</p>

@@ -1,27 +1,16 @@
 <?php
 
 // +---------------------------------------------------------------------------+
-// | Universal Geeklog Plugin 1.0.1                                            |
+// | Theme Editor Plugin for Geeklog - The Ultimate Weblog                     |
 // +---------------------------------------------------------------------------+
-// | admin/index.php                                                           |
-// | Administration page.                                                      |
+// | Copyright (C) 2006 - geeklog AT mystral-kk DOT net                        |
 // |                                                                           |
-// +---------------------------------------------------------------------------+
-// | Copyright (C) 2002 by the following authors:                              |
-// |                                                                           |
-// | Author:                                                                   |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
 // | Tom Willett                 -    twillett@users.sourceforge.net           |
 // | Blaine Lang                 -    langmail@sympatico.ca                    |
 // | The Universal Plugin is based on prior work by:                           |
 // | Tony Bibbs                  -    tony@tonybibbs.com                       |
-// |                                                                           |
-// | modified by mystral-kk      - geeklog AT mystral-k DOT net                |
-// +---------------------------------------------------------------------------+
-// | Replace all themedit with the name of your plugin and all                 |
-// | THM with the name of your plugin's lang file, and you have  |
-// | a skeletal admin page.                                                    |
 // +---------------------------------------------------------------------------+
 // |                                                                           |
 // | This program is free software; you can redistribute it and/or             |
@@ -40,6 +29,7 @@
 // |                                                                           |
 // +---------------------------------------------------------------------------+
 //
+// $Id$
 
 require_once('../../../lib-common.php');
 
@@ -90,6 +80,13 @@ switch (strtolower($_THM_CONF['resync_database'])) {
 
 $theme_names = THM_getAllowedThemes();
 $theme = $theme_names[0];
+
+// Undo magic_quotes if necessary
+
+if (get_magic_quotes_gpc() == 1) {
+	$_GET  = array_map('stripslashes', $_GET);
+	$_POST = array_map('stripslashes', $_POST);
+}
 if (isset($_POST['thm_theme'])) {
 	$req_theme = COM_applyFilter($_POST['thm_theme']);
 } else if (isset($_GET['thm_theme'])) {
@@ -195,6 +192,8 @@ if ($op == $LANG_THM['preview']) {
 	
 	$preview = preg_replace('/(^.*?<title>).*?(<\/title>.*$)/mi', '$1' . $LANG_THM['preview'] . '$2', $preview);
 	list(, $dummy) = explode(' ', microtime());
+	
+	// To make sure your browser reads a CSS file afresh, not from cache
 	if ($is_css) {
 		$css_path = $_CONF['site_url'] . '/layout/' . $theme . '/' . $file;
 		$alt_css_path = $_CONF['site_admin_url'] . '/plugins/themedit/preview.css?dummy=' . $dummy;

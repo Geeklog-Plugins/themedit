@@ -5,17 +5,14 @@
 // +---------------------------------------------------------------------------+
 // | install.php                                                               |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2002 by the following authors:                              |
+// | Copyright (C) 2006 - geeklog AT mystral-kkDOT net                         |
 // |                                                                           |
-// | Author:                                                                   |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
 // | Tom Willett                 -    twillett@users.sourceforge.net           |
 // | Blaine Lang                 -    langmail@sympatico.ca                    |
 // | The Universal Plugin is based on prior work by:                           |
 // | Tony Bibbs                  -    tony@tonybibbs.com                       |
-// |                                                                           |
-// | modified by mystral-kk      - geeklog AT mystral-k DOT net                |
 // +---------------------------------------------------------------------------+
 // |                                                                           |
 // | This program is free software; you can redistribute it and/or             |

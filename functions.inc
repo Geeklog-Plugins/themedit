@@ -5,9 +5,8 @@
 // +---------------------------------------------------------------------------+
 // | functions.inc                                                             |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006 by the following author:                               |
+// | Copyright (C) 2006 - geeklog AT mystral-kk DOT net                        |
 // |                                                                           |
-// | Author: mystral-kk - geeklog AT mystral-k DOT net                         |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
 // | Tom Willett                 -    twillett@users.sourceforge.net           |

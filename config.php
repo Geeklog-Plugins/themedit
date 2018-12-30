@@ -5,9 +5,8 @@
 // +---------------------------------------------------------------------------+
 // | config.php                                                                |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2002 by the following authors:                              |
+// | Copyright (C) 2006 - geeklog AT mystral-kk DOT net                        |
 // |                                                                           |
-// | Author: mystral-kk - geeklog AT mystral-k DOT net                         |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
 // | Tom Willett                 -    twillett@users.sourceforge.net           |
@@ -48,7 +47,7 @@ $_THM_CONF = array();
 
 // Plugin info
 
-$_THM_CONF['pi_version'] = '1.0.1';						// Plugin Version
+$_THM_CONF['pi_version'] = '1.0.2';						// Plugin Version
 $_THM_CONF['gl_version'] = '1.4.0';						// GL Version plugin for
 $_THM_CONF['pi_url']     = 'http://mystrak-kk.net/';	// Plugin Homepage
 

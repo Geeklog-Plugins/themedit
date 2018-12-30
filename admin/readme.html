@@ -45,14 +45,18 @@
 			background-color: #ccffff;
 			font-style: italic;
 		}
+		.fix {
+			color: red;
+			font-weight: bold;
+		}
 	<! -->
 	</style>
 </head>
 
 <body>
-<h1>Geeklog Theme Editor Plugin [v1.0.0]</h1>
+<h1>Geeklog Theme Editor Plugin [v1.0.2]</h1>
 by mystral-kk [<a href="mailto:geeklog@mystral-kk.net">geeklog@mystral-kk.net</a>]<br>
-Oct 1, 2006
+Nov 2, 2006
 
 <h2>Table of Contents</h2>
 
@@ -64,6 +68,7 @@ Oct 1, 2006
 	<li><a href="#uninstall">Uninstalling The Plugin</a></li>
 	<li><a href="#config">Configuring The Plugin</a></li>
 	<li><a href="#upgrade">Upgrading The Plugin</a></li>
+	<li><a href="#usage">Usage</a></li>
 	<li><a href="#license">License</a></li>
 </ul>
 
@@ -74,6 +79,9 @@ Oct 1, 2006
 <table border="1">
 	<tr>
 		<th>Date</th><th>Version</th><th>Description</th>
+	</tr>
+	<tr>
+		<td>Nov 2, 2006</td><td>1.0.2</td><td><span class="fix">[Fix]</span> Dealed with the case where magic_quotes_gpc is on (Thanks, samstone).</td>
 	</tr>
 	<tr>
 		<td>Oct 1, 2006</td><td>1.0.0</td><td>Initial version</td>
@@ -146,6 +154,17 @@ Oct 1, 2006
 
 <a name="upgrade"></a><h3>Upgrading The Plugin</h3>
 
+<a name="usage"></a><h3>Usage</h3>
+<p>The Theme Editor plugin is so simple that you can use it almost intuitively.</p>
+<ol>
+	<li>Choose a theme you want to edit at a dropdown menu.</li>
+	<li>Choose a file you want to edit at a dropdown menu.</li>
+	<li>A list of template vars available in the current file will be displayed.</li>
+	<li>When you hit one of the buttons with a template var name on it, the corresponding tag will be inserted into the caret position.<br><strong>NOTE</strong>: you have to enable JavaScript to use these buttons.</li>
+	<li>When you hit the "<strong>Preview</strong>" button, the current content will be previewed in another page.</li>
+	<li>When you hit the "<strong>Save</strong>" button, the current content will be saved on the Web.</li>
+	<li>When you hit the "<strong>Initialize</strong>" button, the content of the file will be reverted to what it used to be when you installed the Theme Editor plugin.</li>
+</ol>
 
 <a name="license"></a><h3>License</h3>
 <p>The Theme Editor plugin is licensed under the GPL.</p>

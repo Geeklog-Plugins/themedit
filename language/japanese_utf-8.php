@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------|
 // | geeklog/plugins/themedit/language/japanese_utf-8.php                      |
 // +---------------------------------------------------------------------------|
-// | Copyright (C) 2006-2011 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -34,22 +34,22 @@ $LANG_THM = array(
     'plugin'            => 'プラグイン',
 	'access_denied'     => 'アクセスは拒否されました。',
 	'access_denied_msg' => 'このページにアクセスできるのはRootユーザーだけです。あなたのユーザー名とIPアドレスは記録されました。',
-	'admin'		        => 'テーマエディタ',
-	'install_header'	=> 'テーマエディタプラグインのインストール/アンインストール',
-	'installed'         => 'テーマエディタプラグインはインストールされています。',
-	'uninstalled'       => 'テーマエディタプラグインはインストールされていません。',
+	'admin'		        => 'テーマエディター',
+	'install_header'	=> 'テーマエディタープラグインのインストール/アンインストール',
+	'installed'         => 'テーマエディタープラグインはインストールされています。',
+	'uninstalled'       => 'テーマエディタープラグインはインストールされていません。',
 	'install_success'	=> 'インストールに成功しました。',
 	'install_failed'	=> 'インストールに失敗しました。詳細はエラーログ(error.log)をご覧ください。',
-	'uninstall_msg'		=> 'テーマエディタプラグインはアンインストールされました。',
+	'uninstall_msg'		=> 'テーマエディタープラグインはアンインストールされました。',
 	'install'           => 'インストール',
 	'uninstall'         => 'アンインストール',
-    'warning'           => '警告!　テーマエディタプラグインは有効なままです。',
-    'enabled'           => 'アンインストールする前に、テーマエディタプラグインを無効にしてください。',
+    'warning'           => '警告!　テーマエディタープラグインは有効なままです。',
+    'enabled'           => 'アンインストールする前に、テーマエディタープラグインを無効にしてください。',
     'readme'            => 'ちょっと待って!　「インストール」をクリックする前に、お読みください：',
     'installdoc'        => 'インストール手順書（英語）',
     'installdoc_ja'     => 'インストール手順書（日本語）',
-	'menu_label'        => 'テーマエディタ',
-	'cc_label'          => 'テーマエディタ',
+	'menu_label'        => 'テーマエディター',
+	'cc_label'          => 'テーマエディター',
 	'script_disabled'   => 'JavaScriptが無効になっています。操作性を向上させるには、JavaScriptを有効にしてください。',
 	'theme_edited'      => '編集中のテーマ',
 	'file_edited'       => '編集中のファイル',
@@ -58,7 +58,7 @@ $LANG_THM = array(
 	'save'              => '保存',
 	'image'             => '画像',
 	'upload'            => 'アップロード',
-	'upload_header'     => 'テーマエディタ - 画像',
+	'upload_header'     => 'テーマエディター - 画像',
 	'return_to_editor'  => 'テーマの編集に戻る',
 	'change'            => '変更',
 	'file_too_large'    => 'ファイルが大きすぎます。',
@@ -237,8 +237,8 @@ $LANG_THM = array(
 
 // Localization of the Admin Configuration UI
 $LANG_configsections['themedit'] = array(
-    'label' => 'テーマエディタ',
-    'title' => 'テーマエディタの設定'
+    'label' => 'テーマエディター',
+    'title' => 'テーマエディターの設定'
 );
 
 /**
@@ -263,7 +263,7 @@ $LANG_configsubgroups['themedit'] = array(
 );
 
 $LANG_fs['themedit'] = array(
-    'fs_main'   => 'テーマエディタの主要設定',
+    'fs_main'   => 'テーマエディターの主要設定',
 );
 
 // Note: entries 0, 1, 9, and 12 are the same as in $LANG_configselects['Core']

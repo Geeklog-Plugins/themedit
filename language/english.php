@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------|
 // | geeklog/plugins/themedit/language/english.php                             |
 // +---------------------------------------------------------------------------|
-// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2018 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -233,6 +233,23 @@ $LANG_THM = array(
 	'help_lang_toemailaddress'         => 'lang_toemailaddress: [L]Email Address of Recipient',
 	'help_shortmsg'                    => 'shortmsg: Message',
 	'help_toemail'                     => 'toemail: Email Address of Recipient',
+	'help_breadcrumb_trail'            => 'Bradcrumb list',
+	'help_button_search'               => '"Search" button',
+	'help_charset'                     => 'Character set',
+	'help_doctype'                     => '(X)HTML document type',
+	'help_layout_columns'              => 'Layout columns',
+	'help_layout_url'                  => 'URL to the theme directory',
+	'help_page_title_and_site_name'    => 'Page title and Site name',
+	'help_rel_links'                   => '<rel **** /> links placed in <head> section',
+	'help_templatelocation'            => 'Path to the template file (for debugging)',
+	'help_xmlns'                       => 'XML namespace',
+	'help_copyright_msg'               => 'Copywright message',
+	'help_plg_footercode'              => 'JavaScript code for site footer',
+	'help_trademark_msg'               => 'Trademark message',
+	'help_css_classes'                 => 'CSS class attributes',
+	'help_css_id'                      => 'CSS id attribute',
+	'help_help_title'                  => 'Title of the help block',
+	'help_help_url'                    => 'URL to help document',
 );
 
 // Localization of the Admin Configuration UI

@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------+
 // | public_html/admin/plugins/themedit/getimage.php                           |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2018 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -71,12 +71,12 @@ switch (strtolower($info['extension'])) {
 	
 	default:
 		$type = 'none';
-		$im   = FALSE;
+		$im   = false;
 		break;
 }
 
 // Displays the image
-if ($im === FALSE) {
+if ($im === false) {
 	COM_errorLog("themedit: invalid path or GD unsupported: {$path}");
 } else {
 	header("Content-Type: image/{$type}");

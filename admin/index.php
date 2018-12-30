@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------+
 // | public_html/admin/plugins/themedit/index.php                              |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2018 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -156,8 +156,7 @@ switch ($op) {
 	case $LANG_THM['save']:
 		if (!SEC_checkToken()) {
 		    COM_errorLog("Themedit: Someone might have tried CSRF attack.  User id: {$_USER['uid']}, Username: {$_USER['username']}, IP: {$_SERVER['REMOTE_ADDR']}", 1);
-			COM_refresh($_CONF['site_url']);
-			exit;
+			COM_redirect($_CONF['site_url']);
 		}
 		
 		$result = THM_saveFile($theme, $file, $contents);
@@ -181,8 +180,7 @@ switch ($op) {
 		break;
 	
 	case $LANG_THM['image']:
-		header('Location: ' . $_CONF['site_admin_url'] . '/plugins/themedit/upload.php?thm_theme=' . rawurlencode($theme));
-		exit;
+		COM_redirect($_CONF['site_admin_url'] . '/plugins/themedit/upload.php?thm_theme=' . rawurlencode($theme));
 		break;
 	
 	default:

@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------+
 // | geeklog/plugins/themedit/config.php                                       |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2018 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -47,7 +47,7 @@ $_THM_CONF = array();
 /**
 * Plugin info
 */
-$_THM_CONF['pi_version'] = '1.2.2';						// Plugin Version
+$_THM_CONF['pi_version'] = '1.2.3';						// Plugin Version
 $_THM_CONF['gl_version'] = '1.6.0';						// GL Version plugin for
 $_THM_CONF['pi_url']     = 'https://mystral-kk.net/';	// Plugin Homepage
 $_THM_CONF['GROUPS']     = array(

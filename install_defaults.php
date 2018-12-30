@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------+
 // | geeklog/plugins/themedit/install_defaults.php                             |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2018 - geeklog AT mystral-kk DOT net                   |
 // +---------------------------------------------------------------------------+
 // |                                                                           |
 // | This program is free software; you can redistribute it and/or             |

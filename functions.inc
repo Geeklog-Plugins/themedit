@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------+
 // | geeklog/plugins/themedit/functions.inc                                    |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2018 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -306,10 +306,12 @@ function THM_getTemplateVars($theme, $filename) {
 function THM_scanTemplateVars($text) {
 	$retval = array();
 	
-	$result = preg_match_all('/\{([^}].*?)\}/', $text, $match);
+	// Echo simple template vars
+	$result = preg_match_all('/\{([a-zA-Z_][0-9a-zA-Z_]*)\}/', $text, $matches);
 	
 	if ($result >= 1) {
-		$retval = array_unique($match[1]);
+		$retval = $matches[1];
+		$retval = array_unique($retval);
 		sort($retval);
 	}
 	

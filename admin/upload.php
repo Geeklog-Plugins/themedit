@@ -5,7 +5,7 @@
 // +---------------------------------------------------------------------------+
 // | public_html/admin/plugins/themedit/upload.php                             |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2006-2017 - geeklog AT mystral-kk DOT net                   |
+// | Copyright (C) 2006-2018 - geeklog AT mystral-kk DOT net                   |
 // |                                                                           |
 // | Constructed with the Universal Plugin                                     |
 // | Copyright (C) 2002 by the following authors:                              |
@@ -75,7 +75,6 @@ if (isset($_POST['thm_dir'])) {
 	$selected_dir = $_POST['thm_dir'];
 }
 
-$display = COM_siteHeader();
 $T = new Template($_CONF['path'] . 'plugins/themedit/templates');
 $T->set_file(
 	array(
